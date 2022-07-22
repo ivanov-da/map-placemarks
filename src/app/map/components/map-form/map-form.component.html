@@ -1,0 +1,20 @@
+<form [formGroup]="pinForm">
+  <tui-input-number formControlName="long" [precision]="6">Высота</tui-input-number>
+  <tui-input-number formControlName="attitude" [precision]="6">Долгота</tui-input-number>
+  <tui-input formControlName="header">
+    Заголовок
+    <input tuiTextfield />
+  </tui-input>
+  <tui-input formControlName="body">
+    Описание
+    <input tuiTextfield />
+  </tui-input>
+  <tui-input formControlName="hint">
+    Подсказка
+    <input tuiTextfield />
+  </tui-input>
+
+  <button  tuiButton (click)="OnAddPin()">Добавить</button>
+
+  <p>{{pinForm.value | json}}</p>
+</form>

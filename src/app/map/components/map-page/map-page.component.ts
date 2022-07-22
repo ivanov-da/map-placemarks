@@ -1,5 +1,8 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import {YaReadyEvent} from "angular8-yandex-maps";
+import {PlaceMarksService} from "../services/place-marks.service";
+import {INITIAL_PINS} from "../initial-pins";
+import {IPin} from "../../interfaces/pin";
 
 @Component({
   selector: 'app-map-page',
@@ -14,8 +17,18 @@ export class MapPageComponent implements OnInit {
     hintContent: 'The placemark hint',
   };
 
-  constructor() { }
+  constructor(
+    public placeMarksService: PlaceMarksService
+  ) {
+    this.placeMarksService.setPins(INITIAL_PINS);
+  }
 
   ngOnInit(): void {
+
+  }
+
+  public addPin(pin: IPin): void {
+    console.log('ADDED PIN', pin)
+    this.placeMarksService.addPin(pin);
   }
 }

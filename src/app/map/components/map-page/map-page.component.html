@@ -1,8 +1,18 @@
 <div class="container">
-  <ya-map [center]="[56.131722, 47.237014]" [zoom]="14">
-    <ya-placemark
-      [geometry]="[56.122403, 47.267474]"
-      [properties]="placemarkProperties"
-    ></ya-placemark>
+  <ya-map [center]="[56.131722, 47.237014]" [zoom]="13">
+    <ng-container *tuiLet="placeMarksService.pins$ | async as pins">
+      <ya-placemark *ngFor="let pin of pins"
+        [geometry]="pin.geometry"
+        [properties]="{
+          balloonContentHeader: pin.header,
+          balloonContentBody: pin.body,
+          hintContent: pin.hint,
+          balloonContentFooter: '<button>'
+          }"
+      ></ya-placemark>
+    </ng-container>
   </ya-map>
 </div>
+
+<app-map-form (addPin)="addPin($event)" ></app-map-form>
+
