@@ -1,7 +1,5 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import {YaReadyEvent} from "angular8-yandex-maps";
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {PlaceMarksService} from "../services/place-marks.service";
-import {INITIAL_PINS} from "../initial-pins";
 import {IPin} from "../../interfaces/pin";
 
 @Component({
@@ -20,7 +18,7 @@ export class MapPageComponent implements OnInit {
   constructor(
     public placeMarksService: PlaceMarksService
   ) {
-    this.placeMarksService.setPins(INITIAL_PINS);
+    this.placeMarksService.initPins();
   }
 
   ngOnInit(): void {
