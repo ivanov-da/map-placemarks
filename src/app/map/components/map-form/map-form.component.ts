@@ -31,7 +31,7 @@ export class MapFormComponent implements OnInit {
 
   public OnAddPin():void {
     const pin: IPin = {
-      id: null,
+      id: 0,
       geometry: [this.pinForm.value.long, this.pinForm.value.attitude],
       header: this.pinForm.value.header,
       body: this.pinForm.value.body,

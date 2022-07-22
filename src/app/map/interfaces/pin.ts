@@ -1,5 +1,5 @@
 export interface IPin {
-  id: number | null;
+  id: number;
   geometry: number[];
   header: string;
   body: string;

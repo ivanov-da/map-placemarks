@@ -31,4 +31,8 @@ export class MapPageComponent implements OnInit {
     console.log('ADDED PIN', pin)
     this.placeMarksService.addPin(pin);
   }
+
+  test() {
+    console.log(1)
+  }
 }

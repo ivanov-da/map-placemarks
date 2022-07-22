@@ -1,0 +1,26 @@
+<ng-container *tuiLet="placeMarksService.pins$ | async as pins">
+  <table>
+    <thead>
+      <th>Координаты</th>
+      <th>Заголовок</th>
+      <th>Описание</th>
+      <th></th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pin of pins">
+        <td>{{pin.geometry | json}}</td>
+        <td>{{pin.header}}</td>
+        <td>{{pin.body}}</td>
+        <td>
+          <button
+            tuiIconButton
+            type="button"
+            appearance="flat"
+            icon="tuiIconTrash"
+            (click)="removePin(pin.id)"
+          ></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</ng-container>

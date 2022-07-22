@@ -18,8 +18,8 @@ export class PlaceMarksService {
   }
 
   public removePin(id: number): void {
-    const pins: IPin[] = this.getPins();
-    pins.filter( (pin) => pin.id !== id);
+    console.log('removing pin:', id)
+    const pins: IPin[] = this.getPins().filter( (pin) => pin.id !== id);
     this._pins$.next(pins);
   }
 

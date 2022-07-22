@@ -1,5 +1,9 @@
+<app-map-list></app-map-list>
+
 <div class="container">
-  <ya-map [center]="[56.131722, 47.237014]" [zoom]="13">
+  <ya-map [center]="[56.131722, 47.237014]"
+          [state]="{controls: ['zoomControl']}"
+          [zoom]="13">
     <ng-container *tuiLet="placeMarksService.pins$ | async as pins">
       <ya-placemark *ngFor="let pin of pins"
         [geometry]="pin.geometry"
@@ -7,8 +11,9 @@
           balloonContentHeader: pin.header,
           balloonContentBody: pin.body,
           hintContent: pin.hint,
-          balloonContentFooter: '<button>'
+          balloonContentFooter: '<button>Удалить</button>'
           }"
+                    (yacontextmenu)="test()"
       ></ya-placemark>
     </ng-container>
   </ya-map>
