@@ -1,17 +1,19 @@
 <ng-container *tuiLet="placeMarksService.pins$ | async as pins">
-  <table>
+  <table  tuiTable>
     <thead>
-      <th>Координаты</th>
-      <th>Заголовок</th>
-      <th>Описание</th>
-      <th></th>
+      <tr tuiThGroup>
+        <th tuiTh>Координаты</th>
+        <th tuiTh>Заголовок</th>
+        <th tuiTh>Описание</th>
+        <th tuiTh></th>
+      </tr>
     </thead>
-    <tbody>
+    <tbody tuiTbody>
       <tr *ngFor="let pin of pins">
-        <td>{{pin.geometry | json}}</td>
-        <td>{{pin.header}}</td>
-        <td>{{pin.body}}</td>
-        <td>
+        <td tuiTd>{{pin.geometry | json}}</td>
+        <td tuiTd>{{pin.header}}</td>
+        <td tuiTd>{{pin.body}}</td>
+        <td tuiTd>
           <button
             tuiIconButton
             type="button"

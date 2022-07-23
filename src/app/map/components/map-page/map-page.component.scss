@@ -1,4 +1,15 @@
-.container {
+:host {
+  display: block;
+  padding: 20px;
+}
+
+.map {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 50px;
+}
+
+.container-map {
   width: 1000px;
   height: 500px;
 }

@@ -8,7 +8,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {TuiInputModule, TuiInputNumberModule} from "@taiga-ui/kit";
 import {TuiButtonModule} from "@taiga-ui/core";
 import { MapListComponent } from './components/map-list/map-list.component';
-
+import {TuiTableModule} from '@taiga-ui/addon-table';
 
 
 @NgModule({
@@ -24,7 +24,8 @@ import { MapListComponent } from './components/map-list/map-list.component';
     ReactiveFormsModule,
     TuiInputNumberModule,
     TuiInputModule,
-    TuiButtonModule
+    TuiButtonModule,
+    TuiTableModule,
   ],
   exports: [MapPageComponent]
 })

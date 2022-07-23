@@ -1,23 +1,28 @@
-<app-map-list></app-map-list>
+<h1>Пример карты с редактированием меток</h1>
 
-<div class="container">
-  <ya-map [center]="[56.131722, 47.237014]"
-          [state]="{controls: ['zoomControl']}"
-          [zoom]="13">
-    <ng-container *tuiLet="placeMarksService.pins$ | async as pins">
-      <ya-placemark *ngFor="let pin of pins"
-        [geometry]="pin.geometry"
-        [properties]="{
+<div class="map">
+  <div class="container-map">
+    <ya-map [center]="[56.131722, 47.237014]"
+            [state]="{controls: ['zoomControl']}"
+            [zoom]="13"
+            (ready)="onMapReady($event)"
+
+    >
+      <ng-container *tuiLet="placeMarksService.pins$ | async as pins">
+        <ya-placemark *ngFor="let pin of pins"
+                      [geometry]="pin.geometry"
+                      [properties]="{
           balloonContentHeader: pin.header,
           balloonContentBody: pin.body,
-          hintContent: pin.hint,
-          balloonContentFooter: '<button>Удалить</button>'
-          }"
-                    (yacontextmenu)="test()"
-      ></ya-placemark>
-    </ng-container>
-  </ya-map>
+          hintContent: pin.hint          }"
+                      (balloonopen)="test($event)"
+        ></ya-placemark>
+      </ng-container>
+    </ya-map>
+  </div>
+  <app-map-form (addPin)="addPin($event)" ></app-map-form>
 </div>
 
-<app-map-form (addPin)="addPin($event)" ></app-map-form>
+<app-map-list></app-map-list>
+
 
