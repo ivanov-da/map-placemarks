@@ -35,13 +35,10 @@ export class PlaceMarksService {
 
   public initPins(): void {
     const pins = this.storage.getData(StorageEnum.Pins);
-    console.log(pins)
 
     if (pins) {
-      console.log('from localstorage');
       this._pins$.next(pins);
     } else {
-      console.log('from mock')
       this._pins$.next(INITIAL_PINS);
     }
   }
